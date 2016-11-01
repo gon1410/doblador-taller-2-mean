@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Doblador de Ropa - Izquierdo/Urbinati</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	
+
+</head>
+<body class="container" ng-app="app">
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	
+
+	<!-- BARRA TITULO Y SUBTITULO -->
+	<div class="text-center topbar">
+		<h1><strong> Doblador de ropa</strong></h1>
+		<h2>URBI LUSTRA ESPADAS BF</h2>
+	</div>
+
+	<!-- IMAGENES PARA CLICKEAR -->
+	<div ng-controller='mainCtrl as main'> 
+		<div class="row">
+			<div class="col-md-6" id='shirt' ng-click="main.select(1)">
+				<img class="img-circle center-block img-responsive img-custom" ng-src="{{ main.shirt_img}}" ng-class="{'img-active':main.active===1}"> 
+			</div>
+			<div class="col-md-6 center-block" id='pants' ng-click="main.select(2)" > 
+				<img class="img-circle center-block img-responsive img-custom" ng-src="{{ main.trousers_img}}" ng-class="{'img-active':main.active===2}">
+			</div>
+		</div>
+
+		<div class="center-block text-center btn-custom" >
+			<button class="btn btn-default btn-lg btn-block" id="btn-fold" ng-click=main.fold() ng-disabled="main.cantFold">
+				{{main.buttonText}}
+			</button>
+			<label> {{main.buttonLabel}}</label>
+		</div>
+	</div>
+</body>
+</html>

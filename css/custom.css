@@ -1,0 +1,22 @@
+.topbar {
+	vertical-align: middle;
+	padding-top: 5%;
+	height: 15%;
+	margin-bottom: 10%;
+}
+.btn-custom{
+	padding-left: 40%;
+	padding-right: 40%;
+	margin-top: 5%;
+}
+.img-custom{
+	width:40%;
+	height:40%;  
+}
+
+.img-custom.img-active{
+	width:50%;
+	height:50%;  
+	border: 3px dashed blue;
+	padding:0.5%;
+}
