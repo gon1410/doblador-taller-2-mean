@@ -1,0 +1,16 @@
+{
+  "name": "Doblador",
+  "version": "1.0.0",
+  "description": "Doblador de ropa - Taller de proyecto 2",
+  "dependencies": {
+    "body-parser": "^1.0.2",
+    "error-handler": "^0.1.4",
+    "express": "latest",
+    "jade": "~0.31.2",
+    "method-override": "^1.0.0",
+    "morgan": "^1.0.0",
+    "request": "^2.75.0",                                                                              
+    "request-promise": "^4.1.1",                                                                       
+    "routes": "^2.1.0"  
+  }
+}
