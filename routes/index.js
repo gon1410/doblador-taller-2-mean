@@ -42,8 +42,20 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/doblarRemera',function(req,res){
-  port.write("1");
+  port.write('d');
   res.send("Remera doblada");
+});
+router.post('/doblarPantalon',function(req,res){
+  port.write('p');
+  res.send("Pantalon doblada");
+});
+router.post('/cerrar',function(req,res){
+  port.write('c');
+  res.send("Doblador Cerrado");
+});
+router.post('/abrir',function(req,res){
+  port.write('a');
+  res.send("Doblador Abierto");
 });
 
 router.post('/checkLDR',function(req,res){
@@ -51,7 +63,7 @@ router.post('/checkLDR',function(req,res){
    res.send('1');
  }
  else{
-  res.send('0');}
+  res.send('');}
 
 });
 
