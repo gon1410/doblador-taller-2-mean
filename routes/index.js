@@ -3,6 +3,7 @@ var router = express.Router();
 
 var SerialPort = require('serialport');
 var ldr = false;
+var ldr_data="0";
 // list serial ports:
 SerialPort.list(function (err, ports) {
   ports.forEach(function(port) {
@@ -18,16 +19,8 @@ var port = new SerialPort("COM5", {
 port.on('data', function (data) {
 
   ldr_data = data.toString();
-  if (ldr_data === '1'){
-    ldr = true;
-    console.log(ldr);
-  }
-  else
-    if (ldr_data === '0'){
-      ldr = false;
-      console.log(ldr);
-    }
-  });
+  console.log(ldr_data);
+});
 
 port.on('open',function(){
 	console.log(port);
@@ -60,12 +53,8 @@ router.post('/abrir',function(req,res){
 });
 
 router.post('/checkLDR',function(req,res){
-  if (ldr){
-   res.send('1');
- }
- else{
-  res.send('');}
-
+  console.log("DATA_"+ldr_data); 
+  res.send(ldr_data);
 });
 
 

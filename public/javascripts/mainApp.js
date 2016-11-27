@@ -53,7 +53,7 @@ app.controller('mainCtrl',['$scope', '$http', function($scope, $http){
 		else{
 			$http.post('/checkLDR')
 			.success(function(data){
-				if(data === '1')
+				if(data === "1")
 				{
 					$scope.prendaDoblada = true;
 					setTimeout(function(){ $scope.$apply(function(){$scope.prendaDoblada = false;})},3000);
@@ -78,10 +78,9 @@ app.controller('mainCtrl',['$scope', '$http', function($scope, $http){
 				}
 				else
 				{
+					console.log(data);
 					bootbox.alert("No hay una prenda sobre el dispositivo. Intente nuevamente.");
 				}
-
-				setTimeout(function(){ $scope.$apply(function(){})},1500);
 			})
 			.error(function(err){
 				console.log("Error de comunicación");
