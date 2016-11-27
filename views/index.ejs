@@ -90,10 +90,10 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
+        <div class="container"  style="padding-top: 100px">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="images/img/profile.png" alt="">
+                    <img class="img-responsive" src="images/home.png" alt="">
                     <div class="intro-text">
                         <span class="name">Doblador Automático de Ropa</span>
                         <hr class="star-light">
@@ -122,21 +122,30 @@
                 </div>
                 <br>
                 <div class="col-lg-4 col-lg-offset-4 text-center">
-                    <button ng-click="main.fold()" type="submit" class="btn btn-success btn-lg">Doblar</button>
+                    <button ng-click="main.fold()"  class="btn btn-success btn-lg">Doblar</button>
                     <hr>
                     <div id="stateMessage" class="alert alert-success animate-show" ng-show=prendaDoblada>
                       <strong>Bien!</strong> La prenda fue doblada con éxito.
-                  </div>
+                    </div>
                 </div>
                 <br>
             </div>
-            <div class="col-lg-offset-4">
-                <h3>Cómo doblar en  <strong>3 simples pasos</strong>:</h3>
-                <p>1. Colocar la prenda <b>sobre</b> el doblador.</p>
-                <p>2. Elegir el <b>tipo de prenda</b>.</p>
-                <p>3. Darle click a <b>"Doblar"</b></p>
+            <div class="row container text-center" id="instrucciones">
+                <div class="col-lg-6">
+                    <h3>Cómo doblar en  <strong>3 simples pasos</strong>:</h3>
+                    <p>1. Colocar la prenda <b>sobre</b> el doblador.</p>
+                    <p>2. Elegir el <b>tipo de prenda</b>.</p>
+                    <p>3. Darle click a <b>"Doblar"</b></p>
+                </div>
+                <div class="col-lg-6">
+                <h3>Querés abrir o cerrar el doblador?</h3>
+                    <button ng-click="main.open()"  class="btn btn-info">Abrir dispositivo</button><br><br>
+                    <button ng-click="main.close()" class="btn btn-danger">Cerrar dispositivo</button><br><br>
+                    <div id="stateMessage" class="alert alert-success animate-show" ng-show=abrirCerrar>
+                      {{abrirCerrarText}}
+                    </div>
+                </div>
             </div>
-            
          </div>
     </section>
 
@@ -154,8 +163,8 @@
                 <p>Este proyecto fue realizado para la materia "Taller de Proyecto II" de la carrera de Ingeniería en Computación. Los creadores son Gonzalo Izquierdo Brown y Franco Urbinati.</p>
             </div>
             <div class="col-lg-4">
-                <p>La motivación surgió a partir de automatizar tediosas tareas hogareñas. Este proyecto es un prototipo que puede modificado ya que es software y hardware libre. Todo el código esta disponible en Github</p>
-            </div>
+                <p>La motivación surgió a partir de automatizar tediosas tareas hogareñas. Este proyecto es un prototipo que puede modificado ya que es software y hardware libre. Todo el código esta disponible en Github para su uso.</p>
+            </div><br>
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <a href="https://github.com/gon1410/doblador-taller-2-mean" class="btn btn-primary btn-lg">
                     <i class="fa fa-github"></i> Link a Github

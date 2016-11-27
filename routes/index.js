@@ -10,7 +10,7 @@ SerialPort.list(function (err, ports) {
   });
 });
 
-var port = new SerialPort("COM3", {
+var port = new SerialPort("COM4", {
   baudRate: 9600
 });
 

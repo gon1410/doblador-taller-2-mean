@@ -245,6 +245,9 @@ section.success {
     margin: 0 0 30px;
   }
 }
+#instrucciones{
+  background-color: grey;
+}
 .floating-label-form-group {
   position: relative;
   margin-bottom: 0;
@@ -476,6 +479,7 @@ fieldset[disabled] .btn-success.active {
 .portfolio-modal .close-modal:hover {
   opacity: 0.3;
 }
+
 .portfolio-modal .close-modal .lr {
   height: 75px;
   width: 1px;
