@@ -12,7 +12,12 @@ app.controller('mainCtrl',['$scope', '$http', function($scope, $http){
 	$scope.shirt_img = images_shirts[0];
 	$scope.trousers_img= images_trousers[0];
 
+	$scope.prendaDoblada = false;
+	
 	this.select = function(n){
+
+		
+		
 
 		if($scope.active === n){
 			$scope.active = 0;
@@ -42,19 +47,21 @@ app.controller('mainCtrl',['$scope', '$http', function($scope, $http){
 			}
 			$scope.buttonText = "DOBLAR "+clothes[$scope.active];
 		}
-		
+
 	};
 
 	this.fold = function(){
+
 		if($scope.active === 0){
-			window.alert("NO HAY NADA SELECCIONADO, CARETA");
+			bootbox.alert("No hay ninguna prenda seleccionada. Debe seleccionar alguna antes de presionar el botón de doblar.");
 		}
 		else{
 			$http.post('/checkLDR')
 			.success(function(data){
 				if(data === '1')
 				{
-					console.log("DEBERIA DOBLAR: "+clothes[$scope.active]);
+					$scope.prendaDoblada = true;
+					setTimeout(function(){ $scope.$apply(function(){$scope.prendaDoblada = false;})},3000);
 
 					switch ($scope.active){
 
@@ -77,7 +84,7 @@ app.controller('mainCtrl',['$scope', '$http', function($scope, $http){
 				}
 				else
 				{
-					console.log("NO HAY NADA SOBRE EL APARATO");
+					bootbox.alert("No hay una prenda sobre el dispositivo. Intente nuevamente.");
 				}
 
 			})

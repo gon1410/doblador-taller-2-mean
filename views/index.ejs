@@ -1,42 +1,264 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
+
 <head>
-	<title>Doblador de Ropa - Izquierdo/Urbinati</title>
-	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="stylesheets/custom.css">
-	
 
-</head>
-<body class="container" ng-app="app">
-	<script type="text/javascript" src="javascripts/angular.min.js"></script>
-	<script type="text/javascript" src="javascripts/mainApp.js"></script>
-	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<!-- BARRA TITULO Y SUBTITULO -->
-	<div class="text-center topbar">
-		<h1><strong> Doblador de ropa</strong></h1>
-		<h2>Prototipo web de la interfaz de usuario para manipular el dispositivo.</h2>
-	</div>
-<hr>
-	<!-- IMAGENES PARA CLICKEAR -->
-	<div ng-controller='mainCtrl as main'> 
-		<div class="row">
-			<div class="col-md-6" id='shirt' ng-click="main.select(1)">
-				<img class="img-circle center-block img-responsive img-custom" ng-src="{{shirt_img}}" ng-class="{'img-active':active===1}"> 
-			</div>
-			<div class="col-md-6 center-block" id='pants' ng-click="main.select(2)" > 
-				<img class="img-circle center-block img-responsive img-custom" ng-src="{{trousers_img}}" ng-class="{'img-active':active===2}">
-			</div>
-		</div>
-<hr>
-		<div class="center-block text-center btn-custom" >
-			<button class="btn btn-default btn-lg btn-block" id="btn-fold" ng-click=main.fold() ng-disabled="cantFold">
-				{{buttonText}}
-			</button>
-			<label> {{buttonLabel}}</label>
-		</div>
-	</div>
-	<div>
-		
-	</body>
-	</html>
+    <title>Doblador de ropa - Taller de Proyecto II</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="stylesheets/freelancer.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css">
+    
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body id="page-top" class="index" ng-app="app">
+       <!-- jQuery -->
+       <script src="vendor/jquery/jquery.min.js"></script>
+
+       <!-- Bootstrap Core JavaScript -->
+       <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+       <!-- Plugin JavaScript -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+       <!-- Contact Form JavaScript -->
+       <script src="javascripts/jqBootstrapValidation.js"></script>
+       <script src="javascripts/contact_me.js"></script>
+
+       <!-- Theme JavaScript -->
+       <script src="javascripts/freelancer.min.js"></script>
+
+       <script type="text/javascript" src="javascripts/angular.min.js"></script>
+       <script type="text/javascript" src="javascripts/mainApp.js"></script>
+       <script type="text/javascript" src="javascripts/bootbox.min.js"></script>
+
+       <!-- Navigation -->
+       <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">DOBLADOR DE ROPA</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#doblador">Doblador</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Acerca de</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="images/img/profile.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">Doblador Automático de Ropa</span>
+                        <hr class="star-light">
+                        <span class="skills">Doblá tus prendas en segundos: de forma automática</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section id="doblador">
+        <div class="container" ng-controller='mainCtrl as main'>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Qué prenda vas a doblar?</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id='shirt' ng-click="main.select(1)">
+                    <img class="img-circle center-block img-responsive img-custom" ng-src="{{shirt_img}}" ng-class="{'img-active':active===1}">
+                </div>
+                <div class="col-md-6 center-block" id='pants' ng-click="main.select(2)" > 
+                    <img class="img-circle center-block img-responsive img-custom" ng-src="{{trousers_img}}" ng-class="{'img-active':active===2}">
+                </div>
+                <br>
+                <div class="col-lg-4 col-lg-offset-4 text-center">
+                    <button ng-click="main.fold()" type="submit" class="btn btn-success btn-lg">Doblar</button>
+                    <hr>
+                    <div id="stateMessage" class="alert alert-success animate-show" ng-show=prendaDoblada>
+                      <strong>Bien!</strong> La prenda fue doblada con éxito.
+                  </div>
+                </div>
+                <br>
+            </div>
+            <div class="col-lg-offset-4">
+                <h3>Cómo doblar en  <strong>3 simples pasos</strong>:</h3>
+                <p>1. Colocar la prenda <b>sobre</b> el doblador.</p>
+                <p>2. Elegir el <b>tipo de prenda</b>.</p>
+                <p>3. Darle click a <b>"Doblar"</b></p>
+            </div>
+            
+         </div>
+    </section>
+
+  <!-- About Section -->
+  <section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Acerca del proyecto</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2">
+                <p>Este proyecto fue realizado para la materia "Taller de Proyecto II" de la carrera de Ingeniería en Computación. Los creadores son Gonzalo Izquierdo Brown y Franco Urbinati.</p>
+            </div>
+            <div class="col-lg-4">
+                <p>La motivación surgió a partir de automatizar tediosas tareas hogareñas. Este proyecto es un prototipo que puede modificado ya que es software y hardware libre. Todo el código esta disponible en Github</p>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <a href="https://github.com/gon1410/doblador-taller-2-mean" class="btn btn-primary btn-lg">
+                    <i class="fa fa-github"></i> Link a Github
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Contactanos</h2>
+                <hr class="star-primary">
+
+                <p>Envianos sugerencias y dudas sobre cualquier aspecto del proyecto.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" placeholder="Nombre" id="name" required data-validation-required-message="Ingresá tu nombre.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Ingresá tu Email.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Teléfono</label>
+                            <input type="tel" class="form-control" placeholder="Teléfono" id="phone" required data-validation-required-message="Ingresá tu número de teléfono.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Mensaje</label>
+                            <textarea rows="5" class="form-control" placeholder="Mensaje" id="message" required data-validation-required-message="Ingresá un mensaje."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-6">
+                    <h3>Facultad de Informática / Facultad de Ingeniería - UNLP</h3>
+                    <p>50 Y 120 / 1 Y 47 
+                        <br>La Plata, Buenos Aires</p>
+                    </div>
+
+                    <div class="footer-col col-md-6">
+                        <h3>Derechos del proyecto</h3>
+                        <p>El proyecto es libre para ser utilizado y modificado.</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Izquierdo Brown - Urbinati 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+
+</body>
+
+</html>
