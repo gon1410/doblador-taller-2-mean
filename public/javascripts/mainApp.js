@@ -80,10 +80,13 @@ app.controller('mainCtrl',['$scope', '$http', function($scope, $http){
 				{
 					bootbox.alert("No hay una prenda sobre el dispositivo. Intente nuevamente.");
 				}
+
+				setTimeout(function(){ $scope.$apply(function(){})},1500);
 			})
 			.error(function(err){
 				console.log("Error de comunicación");
 			});
+
 		}
 	};
 

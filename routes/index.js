@@ -10,12 +10,13 @@ SerialPort.list(function (err, ports) {
   });
 });
 
-var port = new SerialPort("COM4", {
+var port = new SerialPort("COM5", {
   baudRate: 9600
 });
 
 // RECIBIR DATOS DEL LDR
 port.on('data', function (data) {
+
   ldr_data = data.toString();
   if (ldr_data === '1'){
     ldr = true;
@@ -43,7 +44,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/doblarRemera',function(req,res){
   port.write('d');
-  res.send("Remera doblada");
+  res.send("Remera doblada")  ;
 });
 router.post('/doblarPantalon',function(req,res){
   port.write('p');
